@@ -1,23 +1,12 @@
 # ulima
 
-This README would normally document whatever steps are necessary to get the application up and running.
+## 社内向けフリマアプリ　ulima
+使わなくなった物を社内で欲しい人に譲りましょう。
 
-Things you may want to cover:
+### 基本機能
+* アカウントを作成し、品物を出品。
+* 出品されているものを購入。
 
-Ruby version
-
-System dependencies
-
-Configuration
-
-Database creation
-
-Database initialization
-
-How to run the test suite
-
-Services (job queues, cache servers, search engines, etc.)
-
-Deployment instructions
-
-...
+### 追加機能
+* 出品されている品物にコメント。
+* 出品されている品物をお気に入り登録。
