@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      flash[:info] = "アカウントの作成に成功しました。"
+      redirect_to root_path
     else
       render 'new'
     end
