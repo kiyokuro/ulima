@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.4.1'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -47,7 +49,8 @@ group :development, :test do
   gem 'sqlite3'
   gem 'rubocop', require: false
   gem 'pry-rails'
-  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.4.1'
 end
 
 group :development do
@@ -60,7 +63,6 @@ group :development do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.0.0'
 end
 
 group :production do
@@ -68,5 +70,6 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'rake', '< 11.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
