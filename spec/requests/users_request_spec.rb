@@ -31,6 +31,10 @@ RSpec.describe UsersController, type: :controller do
       let!(:params){{password: ' ', password_confirmation: ' '}}
       it{expect(user.valid?).to eq false}
     end
+    context 'passwordの文字数が６未満' do
+      let!(:params){{password: '12345', password_confirmation: '12345'}}
+      it{expect(user.valid?).to eq false}
+    end
     context 'emailがフォーマットと異なる'do
       let!(:params){{email: 'hoge@com'}}
       it{expect(user.valid?).to eq false}
