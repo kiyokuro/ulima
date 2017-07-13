@@ -50,6 +50,7 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'rails-controller-testing'
   gem 'factory_girl_rails', '~> 4.4.1'
 end
 
