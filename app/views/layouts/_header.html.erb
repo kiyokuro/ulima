@@ -3,7 +3,13 @@
     <%= link_to "ulima", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+        <% if loged_in? %>
+          <li><%= link_to @user.name, user_path(@user) %></li>
+          <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "ログイン", login_path %></li>
           <li><%= link_to "アカウント作成", signup_path %></li>
+        <% end %>
       </ul>
     </nav>
   </div>
