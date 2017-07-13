@@ -5,8 +5,8 @@ FactoryGirl.define do
     name "MyString"
     email "MyString@a.com"
     slack_id "MyString"
-    password_digest "MyString"
-    remember_digest "MyString"
+    password "password"
+    password_confirmation "password"
     admin false
   end
 end
