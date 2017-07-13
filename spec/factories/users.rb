@@ -3,10 +3,10 @@
 FactoryGirl.define do
   factory :user do
     name "MyString"
-    email "MyString"
+    email "MyString@a.com"
     slack_id "MyString"
     password_digest "MyString"
-    remeber_digest "MyString"
+    remember_digest "MyString"
     admin false
   end
 end
