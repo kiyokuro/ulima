@@ -17,8 +17,13 @@ RSpec.describe SessionsController, :type => :controller do
       it { expect(cookies.permanent.signed[:user_id]).to eq user.id }
       it { expect(cookies.permanent.signed[:remember_token]).not_to eq nil }
     end
-    context 'ログイン失敗' do
+    context 'メールアドレスが間違えてログイン失敗' do
       before { post :create, params: { session: { email: 'aaa@a.com', password: 'password' } } }
+      it { expect(response).to render_template('new') }
+      it { expect(flash[:danger]).not_to be_empty }
+    end
+    context 'パスワードが間違えてログイン失敗' do
+      before { post :create, params: { session: { email: 'example@example.com', password: 'pppppp' } } }
       it { expect(response).to render_template('new') }
       it { expect(flash[:danger]).not_to be_empty }
     end
