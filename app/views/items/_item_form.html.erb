@@ -14,7 +14,7 @@
   <%= f.number_field :quantity, class: 'form-control', in: 1..100 %>
 
   <%= f.label "公開する" %>
-  <%= f.check_box :show_enable, class: 'form-control' %>
+  <%= f.check_box :show_enable, class: 'form-control', checked: true %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary", checked: true  %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary"  %>
 <% end %>

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :loged_in_user, only: [:new, :create]
   def new
     @item = Item.new
     @user = current_user
