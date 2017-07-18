@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe ItemsController, type: :controller do
-
   let!(:user) { create(:user) }
   describe '#new' do
     context 'ログインされていなければログインページにリダイレクト' do
@@ -40,16 +39,16 @@ RSpec.describe ItemsController, type: :controller do
   describe 'バリデーション' do
     let!(:item) { build(:item, params) }
     context '正しい入力' do
-      let!(:params){ { } }
+      let!(:params) { {} }
       it { expect(item.valid?).to eq true }
     end
     context 'タイトルが空' do
-      let!(:params){ { name: " "} }
+      let!(:params) { { name: " " } }
       it { expect(item.valid?).to eq false }
     end
     context '説明が空' do
-      let!(:params){ { description: " " } }
-      it { expect(item.valid?).to eq false}
+      let!(:params) { { description: " " } }
+      it { expect(item.valid?).to eq false }
     end
   end
 end

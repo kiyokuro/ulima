@@ -7,6 +7,13 @@
   <%= f.label "アイテム説明" %>
   <%= f.text_field :description, class: 'form-control' %>
 
+  <!-- <span class="picture"> -->
+    <%= f.fields_for :pictures do |picture| %>
+      <%= picture.label "アイテム画像" %>
+      <%= picture.file_field :picture, accept: 'image/jpeg,image/gif,image/png'%>
+    <% end %>
+  <!-- </span> -->
+
   <%= f.label "値段" %>
   <%= f.number_field :price, class: 'form-control', min: 0, value: 0 %>
 
