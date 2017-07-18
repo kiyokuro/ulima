@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170718022121) do
+ActiveRecord::Schema.define(version: 20170718050448) do
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170718022121) do
     t.integer "like_count", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["created_at"], name: "index_items_on_created_at"
   end
 

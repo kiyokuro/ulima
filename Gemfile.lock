@@ -402,7 +402,7 @@ DEPENDENCIES
   rails (~> 5.1.2)
   rails-controller-testing
   rails_12factor
-  rake (< 11.0)
+  rake (= 10.5.0)
   rspec-rails
   rubocop
   sass-rails (~> 5.0)
