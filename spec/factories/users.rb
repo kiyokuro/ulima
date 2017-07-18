@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-    email "MyString@a.com"
-    slack_id "MyString"
+    name "example"
+    email "example@example.com"
+    slack_id "example"
     password "password"
     password_confirmation "password"
     admin false
