@@ -1,6 +1,7 @@
 class Picture < ApplicationRecord
   belongs_to :item
-  # validates :picture_size
+  validate :picture_size
+  validates :picture, presence: true
   mount_uploader :picture, PictureUploader
 
   def self.create_pictures(item)

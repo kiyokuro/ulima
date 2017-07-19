@@ -1,18 +1,20 @@
 class ItemsController < ApplicationController
   before_action :loged_in_user, only: [:new, :create]
-  before_action :current_user,
-                def new
-                  @item = Item.new
-                  @item.pictures.build
-                  @user = @current_user
-                end
+
+  def new
+    @item = Item.new
+    @item.pictures.build
+    @user = current_user
+  end
 
   def create
     @item = current_user.items.build(item_params)
-    # binding.pry
     if @item.save # && Picture.create_pictures(@item)
       redirect_to root_path
     else
+      @item = Item.new
+      @item.pictures.build
+      @user = current_user
       render 'new'
     end
   end
