@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :loged_in_user, only: [:new, :create]
+  before_action :loged_in_user, only: [:new, :create, :buy]
 
   def new
     @item = Item.new
@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   end
 
   def buy
-    
   end
 
   private
