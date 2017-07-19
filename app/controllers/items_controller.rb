@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.pictures.build
-    @user = current_user
+    current_user_instanse
   end
 
   def create
@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     else
       @item = Item.new
       @item.pictures.build
-      @user = current_user
+      current_user_instanse
       render 'new'
     end
   end

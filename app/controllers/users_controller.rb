@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
+  before_action :loged_in_user, only: [:show]
   def new
     @user = User.new
+    current_user_instanse if loged_in?
   end
 
   def create
