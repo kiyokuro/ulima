@@ -11,7 +11,9 @@
   <% if @user.items.any? %>
   <div class="col-md-9">
     <ol class="items">
-      <%= render @items %>
+      <%= link_to "#" do %>
+        <%= render @items %>
+      <% end %>
     </ol>
   </div>
   <div class="paginate">

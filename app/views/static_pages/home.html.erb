@@ -1,14 +1,16 @@
 <% provide(:title, 'ulima') %>
 <h1>ulimaへようこそ</h1>
 
+<div class="content_title">
+  <h3>最新のアイテム</h3>
+</div>
 <div class="row">
-  <div class="content_title">
-    <h3>最新のアイテム</h3>
-  </div>
   <% if @items.any? %>
   <div class="col-md-12">
     <ol class="items_home">
-      <%= render @items %>
+      <%= link_to "#" do %>
+        <%= render @items %>
+      <% end %>
     </ol>
   </div>
   <div class="paginate">
