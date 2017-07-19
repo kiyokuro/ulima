@@ -1,0 +1,25 @@
+<%= form_for(@item, url: url) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label "タイトル" %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label "アイテム説明" %>
+  <%= f.text_field :description, class: 'form-control' %>
+
+  <%= f.fields_for :pictures do |picture| %>
+    <%= picture.label "アイテム画像" %>
+    <%= picture.file_field :picture, class: 'form-control', accept: 'image/jpeg,image/gif,image/png'%>
+  <% end %>
+
+  <%= f.label "値段" %>
+  <%= f.number_field :price, class: 'form-control', min: 0, value: 0 %>
+
+  <%= f.label "個数" %>
+  <%= f.number_field :quantity, class: 'form-control', in: 1..100 %>
+
+  <%= f.label "公開する" %>
+  <%= f.check_box :show_enable, class: 'form-control', checked: true %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary"  %>
+<% end %>
