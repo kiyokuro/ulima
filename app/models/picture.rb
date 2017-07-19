@@ -5,7 +5,6 @@ class Picture < ApplicationRecord
   mount_uploader :picture, PictureUploader
 
   def self.create_pictures(item)
-    binding.pry
     unless item[:picture].nil?
       Picture.transaction do
         item[:picture].each do |pic|
