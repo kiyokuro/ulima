@@ -8,9 +8,7 @@
   <% if @items.any? %>
   <div class="col-md-12">
     <ol class="items_home">
-      <%= link_to "#" do %>
-        <%= render @items %>
-      <% end %>
+      <%= render @items %>
     </ol>
   </div>
   <div class="paginate">

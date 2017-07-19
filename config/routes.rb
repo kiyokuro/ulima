@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/registrate', to: 'items#new'
   post '/registrate', to: 'items#create'
+  post '/purchase', to: 'items#buy'
   resources :users
   resources :items
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
