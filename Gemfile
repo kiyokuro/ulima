@@ -13,8 +13,7 @@ gem 'bcrypt',         '3.1.11'
 gem 'carrierwave',             '1.1.0'
 gem 'mini_magick',             '4.7.0'
 gem 'fog',                     '1.40.0'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'kaminari'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

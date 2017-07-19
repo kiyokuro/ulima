@@ -1,0 +1,23 @@
+<li class="<%= item %>">
+
+  <div class="item_image">
+    <% unless item.pictures.first.nil? %>
+      <div><%=image_tag item.pictures.first.picture%></div>
+    <% else %>
+      <%=image_tag 'no_image.jpg', size: "300x300"%>
+    <% end %>
+  </div>
+  <div class="name">
+    <h4><%=item.name%></h4>
+  </div>
+  <div>
+    <div class="price">
+      <% unless item.quantity.zero?%>
+        ￥
+        <%=item.price%>
+      <% else %>
+        sold out
+      <% end %>
+    </div>
+  </div>
+</li>
