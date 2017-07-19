@@ -26,6 +26,9 @@
         <%= button_to "購入", purchase_path(@item), class: "btn btn-primary" %>
       </div>
       <div>
+        残り<%= @item.quantity %>個
+      </div>
+      <div class="space_top">
         <%= @item.description %>
       </div>
     </div>
