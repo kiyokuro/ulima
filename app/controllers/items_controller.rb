@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.pictures.build
-    current_user_instanse
   end
 
   def create
@@ -12,9 +11,7 @@ class ItemsController < ApplicationController
     if @item.save # && Picture.create_pictures(@item)
       redirect_to root_path
     else
-      @item = Item.new
       @item.pictures.build
-      current_user_instanse
       render 'new'
     end
   end
