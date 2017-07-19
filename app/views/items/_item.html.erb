@@ -2,9 +2,9 @@
 
   <div class="item_image">
     <% unless item.pictures.first.nil? %>
-      <div><%=image_tag item.pictures.first.picture%></div>
+      <div><%=image_tag item.pictures.first.picture, size: "200x200"%></div>
     <% else %>
-      <%=image_tag 'no_image.jpg', size: "300x300"%>
+      <%=image_tag 'no_image.jpg', size: "200x200"%>
     <% end %>
   </div>
   <div class="name">
