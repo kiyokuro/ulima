@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :loged_in_user, only: [:new, :create, :buy]
+  before_action :loged_in_user, only: [:new, :create]
 
   def new
     @item = Item.new
@@ -18,9 +18,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-  end
-
-  def buy
   end
 
   private

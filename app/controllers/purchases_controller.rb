@@ -1,0 +1,11 @@
+class PurchasesController < ApplicationController
+  before_action :loged_in_user, only: [:create, :index]
+  def create
+    @item = Item.find(params[:id])
+    render 'buy_success'
+  end
+
+  def index
+    redirect_to root_path
+  end
+end

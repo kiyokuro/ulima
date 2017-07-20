@@ -23,7 +23,7 @@
         <% end %>
       </h3>
       <div class="base_button">
-        <%= button_to "購入", purchase_path(@item), class: "btn btn-primary" %>
+        <%= button_to "購入", purchases_path(id: @item.id ), class: "btn btn-primary" %>
       </div>
       <div>
         残り<%= @item.quantity %>個
