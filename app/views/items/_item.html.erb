@@ -1,0 +1,24 @@
+<%= link_to item_path(item) do %>
+  <li class="<%= item %>">
+    <div>
+      <% unless item.pictures.first.nil? %>
+        <div><%=image_tag item.pictures.first.picture, size: "200x200"%></div>
+      <% else %>
+        <%=image_tag 'no_image.jpg', size: "200x200"%>
+      <% end %>
+    </div>
+    <div class="name">
+      <h4><%=item.name%></h4>
+    </div>
+    <div>
+      <div class="price">
+        <% unless item.quantity.zero?%>
+          ￥
+          <%=item.price%>
+        <% else %>
+          sold out
+        <% end %>
+      </div>
+    </div>
+  </li>
+<% end %>

@@ -1,2 +1,18 @@
+<% provide(:title, 'ulima') %>
 <h1>ulimaへようこそ</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+
+<div class="content_title">
+  <h3>最新のアイテム</h3>
+</div>
+<div class="row">
+  <% if @items.any? %>
+  <div class="col-md-12">
+    <ol class="items_home">
+      <%= render @items %>
+    </ol>
+  </div>
+  <div class="paginate">
+    <%= paginate @items %>
+  </div>
+  <% end %>
+</div>

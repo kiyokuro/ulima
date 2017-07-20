@@ -13,8 +13,7 @@ gem 'bcrypt',         '3.1.11'
 gem 'carrierwave',             '1.1.0'
 gem 'mini_magick',             '4.7.0'
 gem 'fog',                     '1.40.0'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'kaminari'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -44,7 +43,6 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
   gem 'rubocop', require: false
@@ -64,6 +62,10 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '~> 2.13'
+  gem 'poltergeist'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :production do

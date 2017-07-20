@@ -1,0 +1,36 @@
+<% provide(:title, @item.name) %>
+<div class="row">
+  <div class="space_top">
+    <div class="col-md-6">
+      <div class="item_image">
+        <% unless @item.pictures.first.nil? %>
+          <div><%=image_tag @item.pictures.first.picture, size: "400x400"%></div>
+        <% else %>
+          <%=image_tag 'no_image.jpg', size: "400x400"%>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="name">
+        <h3><%=@item.name%></h3>
+      </div>
+      <h3 class="space_top">
+        <% unless @item.quantity.zero?%>
+          ￥
+          <%=@item.price%>
+        <% else %>
+          sold out
+        <% end %>
+      </h3>
+      <div class="base_button">
+        <%= button_to "購入", purchase_path(@item), class: "btn btn-primary" %>
+      </div>
+      <div>
+        残り<%= @item.quantity %>個
+      </div>
+      <div class="space_top">
+        <%= @item.description %>
+      </div>
+    </div>
+  </div>
+</div>
