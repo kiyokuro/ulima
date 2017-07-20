@@ -4,6 +4,9 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:id])
     quantity = @item.quantity - 1
     @item.update_attribute(:quantity, quantity)
+    if @item.quantity.zero?
+      @item.update_attribute(:show_enable, false)
+    end
     render 'buy_success'
   end
 
