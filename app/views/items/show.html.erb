@@ -15,16 +15,18 @@
         <h3><%=@item.name%></h3>
       </div>
       <h3 class="space_top">
-        <% unless @item.quantity.zero?%>
-          ￥
-          <%=@item.price%>
-        <% else %>
-          sold out
-        <% end %>
+        ￥
+        <%=@item.price%>
       </h3>
-      <div class="base_button">
-        <%= button_to "購入", purchases_path(id: @item.id ), class: "btn btn-primary" %>
-      </div>
+      <% unless @item.quantity.zero? %>
+        <div class="base_button">
+          <%= button_to "購入", purchases_path(id: @item.id ), class: "btn btn-primary" %>
+        </div>
+      <% else %>
+        <div class="base_button">
+          <%= button_to "sold out", '#', class: "btn btn-primary", disabled: true %>
+        </div>
+      <% end %>
       <div>
         残り<%= @item.quantity %>個
       </div>
