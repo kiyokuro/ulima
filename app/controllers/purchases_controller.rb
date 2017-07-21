@@ -8,7 +8,6 @@ class PurchasesController < ApplicationController
       if @item.quantity.zero?
         @item.update_attribute(:show_enable, false)
       end
-      binding.pry
       render 'buy_success'
     else
       render 'items/soldout'
