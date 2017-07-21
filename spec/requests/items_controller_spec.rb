@@ -1,16 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe ItemsController, type: :controller do
+RSpec.describe ItemsController, type: :request do
   let!(:user) { create(:user) }
   describe '#new' do
     context 'ログインされていなければログインページにリダイレクト' do
-      before { get :new }
+      before { get registrate_path }
       it { expect(response).to redirect_to(login_url) }
     end
     context 'アイテム登録フォームにアクセス' do
       before do
-        session[:user_id] = user.id
-        get :new
+        log_in_as(user)
+        get registrate_path
       end
       it { expect(response).to render_template('new') }
     end
@@ -19,19 +19,19 @@ RSpec.describe ItemsController, type: :controller do
   describe '#create' do
     let!(:item_param) { attributes_for(:item) }
     context 'ログインされていなければログインページにリダイレクト' do
-      before { post :create, params: { item: item_param } }
+      before { post registrate_path, params: { item: item_param } }
     end
     context 'アイテムが登録された' do
       before do
-        session[:user_id] = user.id
-        post :create, params: { item: item_param }
+        log_in_as(user)
+        post registrate_path, params: { item: item_param }
       end
       it { expect(response).to redirect_to(root_path) }
     end
     context 'アイテムの登録に失敗した' do
       before do
-        session[:user_id] = user.id
-        post :create, params: { item: { name: " ", description: " ", price: "100", quantity: "1", show_enable: true } }
+        log_in_as(user)
+        post registrate_path, params: { item: { name: " ", description: " ", price: "100", quantity: "1", show_enable: true } }
       end
       it { expect(response).to render_template('new') }
     end
