@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items = @user.items.order(:created_at).page(params[:page])
+    @items = @user.items.order('created_at DESC').page(params[:page])
   end
 
   private

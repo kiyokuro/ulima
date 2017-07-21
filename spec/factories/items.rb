@@ -5,7 +5,7 @@ FactoryGirl.define do
     name "apple"
     description "really red apple"
     price "150"
-    quantity "3"
+    quantity "1"
     show_enable true
     user_id "1"
   end
