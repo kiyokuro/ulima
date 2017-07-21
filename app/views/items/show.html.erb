@@ -1,7 +1,4 @@
 <% provide(:title, @item.name) %>
-<% if @item.user_id == current_user.id && !@item.show_enable%>
-  <p>このアイテムは他のユーザからは見えません</p>
-<% end %>
 <div class="row">
   <div class="space_top">
     <div class="col-md-6">

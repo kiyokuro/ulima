@@ -18,9 +18,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    if @item.quantity.zero?
-      render 'soldout'
-    end
   end
 
   private
