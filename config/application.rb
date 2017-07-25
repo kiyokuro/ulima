@@ -16,6 +16,7 @@ module Ulima
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    config.i18n.default_locale = :ja
     config.eager_load_paths += %W(#{config.root}/lib/validator)
   end
 end
