@@ -15,7 +15,7 @@ class UserMailer < ApplicationMailer
     @item = item
     @sell_user = User.find(@item.user_id)
 
-    mail to: @sell_user.email, subject: "【ulima】#{@item}の取引のご案内"
+    mail to: @sell_user.email, subject: "【ulima】#{@item.name}の取引のご案内"
   end
 
   def notice_buy_item(order_user, item)
@@ -23,7 +23,7 @@ class UserMailer < ApplicationMailer
     @item = item
     @sell_user = User.find(@item.user_id)
 
-    mail to: order_user.email, subject: "【ulima】#{@item}の取引のご案内"
+    mail to: order_user.email, subject: "【ulima】#{@item.name}の取引のご案内"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
