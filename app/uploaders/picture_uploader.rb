@@ -1,16 +1,11 @@
 # encoding: utf-8
 
 class PictureUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
-  process resize_to_fill: [400, 400, "Center"]
-
-  # Choose what kind of storage to use for this uploader:
-  if Rails.env.production?
-    storage :fog
-  else
-    storage :file
+  include Cloudinary::CarrierWave
+  process tags: ['item']
+  process convert: 'png'
+  version :standard do
+    process resize_to_fill: [400, 400, :center]
   end
 
   # Override the directory where uploaded files will be stored.

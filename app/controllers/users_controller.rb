@@ -5,8 +5,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(user_params)
+    @user = User.new(user_params)
     if @user.save
+      @user.send_activation_email
+      flash[:info] = "アカウント認証メールが送信されました。メールをご確認ください。"
       redirect_to root_path
     else
       render 'new'

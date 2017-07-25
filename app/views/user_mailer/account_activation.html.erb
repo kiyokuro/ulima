@@ -1,0 +1,8 @@
+<h1>ulima</h1>
+<%= @user.name %>さま
+
+<p>ulimaのご利用ありがとうございます。</p>
+<p>こちらは会員登録のご案内です。</p><br>
+
+<p>以下のリンクをクリックすることで会員登録が完了します。</p>
+<%= link_to "メールアドレス認証する", edit_account_activation_url(@user.activation_token, email: @user.email) %>

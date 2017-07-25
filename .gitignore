@@ -9,6 +9,7 @@ capybara-*.html
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
+/public/tmp
 /coverage/
 /spec/tmp
 /public/uploads/picture/*
@@ -21,6 +22,8 @@ config/initializers/secret_token.rb
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
+config/initializers/mail.rb
+config/initializers/settings.rb
 
 # dotenv
 # TODO Comment out this rule if environment variables can be committed

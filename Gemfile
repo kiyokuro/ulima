@@ -9,10 +9,10 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-gem 'bcrypt',         '3.1.11'
+gem 'bcrypt'
 gem 'carrierwave',             '1.1.0'
 gem 'mini_magick',             '4.7.0'
-gem 'fog',                     '1.40.0'
+gem 'cloudinary'
 gem 'kaminari'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -59,6 +59,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem "letter_opener"
 end
 
 group :test do
