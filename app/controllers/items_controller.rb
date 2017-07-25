@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :loged_in_user, only: [:new, :create]
+  before_action :loged_in_user, only: [:new, :create, :edit, :update]
 
   def new
     @item = Item.new
@@ -18,6 +18,21 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update_attributes(item_params)
+      redirect_to user_path(@item.user_id)
+    else
+      # redirect_to edit_item_path(@item)
+      render 'edit'
+      binding.pry
+    end
   end
 
   private

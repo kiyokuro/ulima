@@ -3,5 +3,5 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :description, presence: true
   has_many :pictures
-  accepts_nested_attributes_for :pictures, allow_destroy: true
+  accepts_nested_attributes_for :pictures, allow_destroy: true, reject_if: :all_blank
 end

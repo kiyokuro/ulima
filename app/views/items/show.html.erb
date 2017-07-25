@@ -11,6 +11,9 @@
       </div>
     </div>
     <div class="col-md-6">
+      <% if @item.user_id == current_user.id %>
+        <%= link_to 'アイテム情報を修正', edit_item_path(@item) %>
+      <% end %>
       <div class="name">
         <h3><%=@item.name%></h3>
       </div>
