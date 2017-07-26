@@ -5,13 +5,13 @@
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(:session, url: login_path) do |f| %>
 
-      <%= f.label 'メールアドレス' %>
+      <%= f.label 'メールアドレス', class: "space_top10" %>
       <%= f.email_field :email, class: 'form-control' %>
 
-      <%= f.label 'パスワード' %>
+      <%= f.label 'パスワード', class: "space_top10" %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.submit "ログイン", class: "btn btn-primary" %>
+      <%= f.submit "ログイン", class: "btn btn-primary btn-lg btn-block space_top10" %>
     <% end %>
 
     <p><%= link_to "新規登録はこちら", signup_path %></p>
