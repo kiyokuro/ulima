@@ -8,7 +8,12 @@
       <% end %>
     </div>
     <div class="name">
-      <h4><%=item.name%></h4>
+      <h4>
+        <%=item.name%>
+        <% unless item.show_enable %>
+          (非表示)
+        <% end %>
+      </h4>
     </div>
     <div>
       <div class="price">

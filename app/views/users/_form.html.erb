@@ -1,17 +1,17 @@
 <%= form_for(@user, url: url) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 
-  <%= f.label "名前" %>
+  <%= f.label "名前", class: "space_top10" %>
   <%= f.text_field :name, class: 'form-control' %>
 
-  <%= f.label "メールアドレス" %>
+  <%= f.label "メールアドレス", class: "space_top10" %>
   <%= f.email_field :email, class: 'form-control' %>
 
-  <%= f.label "パスワード" %>
+  <%= f.label "パスワード", class: "space_top10" %>
   <%= f.password_field :password, class: 'form-control' %>
 
-  <%= f.label "パスワード確認" %>
+  <%= f.label "パスワード確認", class: "space_top10" %>
   <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary btn-lg btn-block space_top10" %>
 <% end %>
