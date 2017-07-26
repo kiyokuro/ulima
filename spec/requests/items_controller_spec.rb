@@ -51,4 +51,39 @@ RSpec.describe ItemsController, type: :request do
       it { expect(item.valid?).to eq false }
     end
   end
+  describe '#edit' do
+    let!(:item) { create(:item) }
+    context 'ログイン前' do
+      before { get edit_item_path item }
+      it { expect(response).to redirect_to login_path }
+    end
+    context 'ログイン後' do
+      before do
+        log_in_as user
+        get edit_item_path item
+      end
+      it { expect(response).to render_template 'edit' }
+    end
+  end
+  describe '#update' do
+    let!(:item) { create(:item) }
+    context 'ログイン前' do
+      before { put item_path item }
+      it { expect(response).to redirect_to login_path }
+    end
+    context '更新が成功' do
+      before do
+        log_in_as user
+        patch item_path item, params: { item: { name: "name", description: "description", price: "100", quantity: "1", show_enable: true, picture: "picture" } }
+      end
+      it { expect(response).to redirect_to user_path user }
+    end
+    context '更新が失敗' do
+      before do
+        log_in_as user
+        patch item_path item, params: { item: { name: " ", description: " ", price: '100', quantity: "1", show_enable: true, picture: "picture" } }
+      end
+      it { expect(response).to render_template 'edit' }
+    end
+  end
 end
