@@ -16,6 +16,7 @@ elsif Rails.env.development?
   ActionMailer::Base.default_url_options = { host: host, protocol: 'http' }
   ActionMailer::Base.delivery_method = :letter_opener
 else
+  host = 'localhost:3000'
   ActionMailer::Base.default_url_options = { host: host, protocol: 'http' }
   ActionMailer::Base.delivery_method = :test
 end
