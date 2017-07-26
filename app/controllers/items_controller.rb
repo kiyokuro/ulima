@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    Picture.new(picture: '', item_id: @item_id)
     @item = current_user.items.build(item_params)
     if @item.save # && Picture.create_pictures(@item)
       redirect_to root_path
@@ -22,16 +23,20 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    if @item.pictures.last.nil?
+      @item.pictures.build
+    end
   end
 
   def update
     @item = Item.find(params[:id])
     if @item.update_attributes(item_params)
+      if @item.pictures.count > 1
+        @item.pictures.first.destroy
+      end
       redirect_to user_path(@item.user_id)
     else
-      # redirect_to edit_item_path(@item)
       render 'edit'
-      binding.pry
     end
   end
 

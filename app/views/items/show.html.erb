@@ -3,16 +3,18 @@
   <div class="space_top">
     <div class="col-md-6">
       <div class="item_image">
-        <% unless @item.pictures.first.nil? %>
-          <div><%=image_tag @item.pictures.first.picture.url, size: "400x400"%></div>
+        <% unless @item.pictures.last.nil? %>
+          <div><%=image_tag @item.pictures.last.picture.url, size: "400x400"%></div>
         <% else %>
           <%=image_tag 'no_image.jpg', size: "400x400"%>
         <% end %>
       </div>
     </div>
     <div class="col-md-6">
-      <% if @item.user_id == current_user.id %>
-        <%= link_to 'アイテム情報を修正', edit_item_path(@item) %>
+      <% unless current_user.nil? %>
+        <% if @item.user_id == current_user.id %>
+          <%= link_to 'アイテム情報を修正', edit_item_path(@item) %>
+        <% end %>
       <% end %>
       <div class="name">
         <h3><%=@item.name%></h3>
