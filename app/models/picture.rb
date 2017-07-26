@@ -1,7 +1,7 @@
 class Picture < ApplicationRecord
   belongs_to :item
   validate :picture_size
-  validates :picture, presence: true
+  validates :picture, presence: true, allow_nil: true
   attr_accessor :picture
   mount_uploader :picture, PictureUploader
 
