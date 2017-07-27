@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Picture.new(picture: '', item_id: @item_id)
     @item = current_user.items.build(item_params)
     if @item.save # && Picture.create_pictures(@item)
       redirect_to root_path
@@ -23,7 +22,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    if @item.pictures.last.nil?
+    if @item.pictures.none?
       @item.pictures.build
     end
   end
