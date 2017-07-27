@@ -5,6 +5,5 @@ feature 'Usecase: Account', js: true do
   end
 
   scenario do
-
   end
 end
