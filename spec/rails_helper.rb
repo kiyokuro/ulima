@@ -39,11 +39,19 @@ module SessionsHelper
   end
 end
 
+module UsersHelper
+  def create_reset_digest(user)
+    user.reset_token = User.new_token
+    user.update_attributes(reset_digest: User.digest(user.reset_token))
+  end
+end
+
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include SessionsHelper
+  config.include UsersHelper
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
