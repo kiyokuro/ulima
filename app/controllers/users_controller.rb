@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :loged_in_user, only: [:show]
+  before_action :loged_in_user, only: [:show, :edit, :update]
   def new
     @user = User.new
   end
@@ -18,6 +18,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @items = @user.items.order('created_at DESC').page(params[:page])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to user_path @user
+    else
+      render 'edit'
+    end
   end
 
   private
