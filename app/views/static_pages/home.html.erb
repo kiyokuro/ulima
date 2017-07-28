@@ -1,10 +1,9 @@
 <% provide(:title, 'ulima') %>
-<div>
-  <h1>ulimaへようこそ</h1>
+<div class="search">
+  <h1>お気に入りアイテムを見つける</h1>
   <div class="center">
-    アイテムをさがす
     <%= form_tag items_search_index_path, method: 'get', class: "form-inline", remote: true do %>
-      <%= text_field_tag :search_word, params[:search_word], class: 'form-control' %>
+      <%= text_field_tag :search_word, params[:search_word], class: 'form-control search-form' %>
       <%= submit_tag "さがす", class: "btn btn-primary" %>
     <% end %>
   </div>

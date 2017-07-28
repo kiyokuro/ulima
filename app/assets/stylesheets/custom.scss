@@ -4,6 +4,7 @@
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$my-blue: #337ab7;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -64,16 +65,26 @@ p {
 #logo {
   float: left;
   margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  font-size: 2.2em;
+  color: $my-blue;
+  letter-spacing: 2px;
+
   font-weight: bold;
   &:hover {
-    color: white;
+    color: $my-blue;
     text-decoration: none;
   }
+}
+.header {
+  border-bottom: 1px solid #ddd;
+  position: fixed;
+  background-color: white;
+  padding: 7px;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:focus {
+background-color: #fff;
 }
 
 /* footer */
@@ -109,6 +120,15 @@ footer {
     margin-top: 45px;
     @include box_sizing;
   }
+}
+
+.search {
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+#search_word {
+  width: 480px;
 }
 
 .items_home {
