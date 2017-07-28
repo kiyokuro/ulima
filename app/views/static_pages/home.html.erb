@@ -1,5 +1,14 @@
 <% provide(:title, 'ulima') %>
-<h1>ulimaへようこそ</h1>
+<div>
+  <h1>ulimaへようこそ</h1>
+  <div class="center">
+    アイテムをさがす
+    <%= form_tag items_search_index_path, method: 'get', class: "form-inline", remote: true do %>
+      <%= text_field_tag :search_word, params[:search_word], class: 'form-control' %>
+      <%= submit_tag "さがす", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
 <div class="content_title">
   <h3>最新のアイテム</h3>
@@ -8,7 +17,9 @@
   <% if @items.any? %>
   <div class="col-md-12">
     <ol class="items_home">
-      <%= render @items %>
+      <div id="items_list">
+        <%= render @items %>
+      </div>
     </ol>
   </div>
   <div class="paginate">
