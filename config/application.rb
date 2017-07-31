@@ -19,6 +19,10 @@ module Ulima
     config.i18n.default_locale = :ja
     config.eager_load_paths += %W(#{config.root}/lib/validator)
 
-    config.mail_domain = ENV['COMMUNITY_EMAIL_DMAIN']
+    if Rails.env.test?
+      config.mail_domain = 'example.com'
+    else
+      config.mail_domain = ENV['COMMUNITY_EMAIL_DMAIN']
+    end
   end
 end

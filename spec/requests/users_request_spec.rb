@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :request do
   end
   describe '#create' do
     context 'ユーザ作成できたとき' do
-      before { post signup_path, params: { user: { name: 'name', email: 'email@e.com', slack_id: '', password: 'hogehoge', password_confirmation: 'hogehoge' } } }
+      before { post signup_path, params: { user: { name: 'name', email: 'email@example.com', slack_id: '', password: 'hogehoge', password_confirmation: 'hogehoge' } } }
       it { expect(response).to redirect_to(root_url) }
     end
     context 'ユーザ作成できないとき' do
@@ -71,13 +71,13 @@ RSpec.describe UsersController, type: :request do
   describe '#update' do
     let!(:user) { create(:user) }
     context 'ログイン前' do
-      before { patch user_path user, params: { user: { name: 'name', email: 'email@e.com', slack_id: '', password: 'hogehoge', password_confirmation: 'hogehoge' } } }
+      before { patch user_path user, params: { user: { name: 'name', email: 'email@example.com', slack_id: '', password: 'hogehoge', password_confirmation: 'hogehoge' } } }
       it { expect(response).to redirect_to login_path }
     end
     context '更新成功' do
       before do
         log_in_as user
-        patch user_path user, params: { user: { name: "name", email: "email@e.com", slack_id: "slack_id", password: "hogehoge", password_confirmation: "hogehoge" } }
+        patch user_path user, params: { user: { name: "name", email: "email@example.com", slack_id: "slack_id", password: "hogehoge", password_confirmation: "hogehoge" } }
       end
       it { expect(response).to redirect_to user_path user }
     end
