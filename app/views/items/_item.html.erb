@@ -2,7 +2,9 @@
   <li class="<%= item %>">
     <div>
       <% unless item.pictures.last.nil? %>
-        <div><%=cl_image_tag item.pictures.last.picture.url, size: "200x200"%></div>
+        <div class='trim'>
+          <%=cl_image_tag item.pictures.last.picture.url, size: "200x200"%>
+        </div>
       <% else %>
         <%=image_tag 'no_image.jpg', size: "200x200"%>
       <% end %>

@@ -4,7 +4,9 @@
     <div class="col-md-6">
       <div class="item_image">
         <% unless @item.pictures.last.nil? %>
-          <div><%=image_tag @item.pictures.last.picture.url, size: "400x400"%></div>
+          <div class="trim">
+            <%=image_tag @item.pictures.last.picture.url, size: "400x400"%>
+          </div>
         <% else %>
           <%=image_tag 'no_image.jpg', size: "400x400"%>
         <% end %>
