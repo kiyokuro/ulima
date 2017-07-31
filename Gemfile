@@ -68,6 +68,7 @@ group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'simplecov', :require => false
 end
 
 group :production do
